@@ -196,6 +196,7 @@ import socials from '../../data/socials.json';
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 
 .category-card::before {
@@ -230,6 +231,7 @@ import socials from '../../data/socials.json';
   justify-content: center;
   background: var(--color-primary-1);
   border-radius: var(--radius-lg);
+  flex-shrink: 0;
 }
 
 .category-card__title {
@@ -251,6 +253,8 @@ import socials from '../../data/socials.json';
   font-size: var(--text-lg);
   color: var(--color-primary);
   transition: transform var(--transition-normal);
+  align-self: flex-end;
+  margin-top: var(--space-xs);
 }
 
 .category-card:hover .category-card__arrow {

@@ -31,7 +31,7 @@ jobs:
         run: npm ci
 
       - name: Build Medical Minimal theme
-        run: node scripts/build-theme.js medical
+        run: npm run deploy
 
       - name: Copy CNAME for Custom Domain
         run: cp CNAME dist/medical/

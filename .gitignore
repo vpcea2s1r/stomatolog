@@ -5,7 +5,7 @@ dist
 *.log
 9router
 openserp
-scripts
+
 wordstat
 .wrangler
 .keystatic

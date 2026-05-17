@@ -1,0 +1,41 @@
+:root {
+  /* Фиолетовая — Violet + Lavender */
+  --color-primary-1: #F5F0FF;
+  --color-primary-2: #EDE1FF;
+  --color-primary-3: #DCC8FF;
+  --color-primary-4: #C9A8FF;
+  --color-primary-5: #B388FF;
+  --color-primary: #9C6ADE;
+  --color-primary-7: #7C3AED;
+  --color-primary-8: #5B21B6;
+  --color-primary-9: #4C1D95;
+  --color-primary-10: #2E1065;
+
+  --color-primary-hover: #B388FF;
+  --color-primary-active: #7C3AED;
+  --color-primary-light: #F5F0FF;
+  --color-primary-dark: #5B21B6;
+
+  --color-success: #7C6A9E;
+  --color-success-hover: #8E7AB0;
+  --color-warning: #B88A44;
+  --color-error: #B8405E;
+  --color-gold: #B88A44;
+
+  --color-text: #1A1030;
+  --color-text-secondary: #2D1B4E;
+  --color-text-muted: #6B5E80;
+  --color-text-light: #9A8EB0;
+
+  --color-bg: #FCFAFF;
+  --color-bg-alt: #F8F4FF;
+  --color-bg-gradient-start: #F2ECFF;
+  --color-bg-gradient-end: #FCFAFF;
+  --color-bg-dark: #1A1030;
+  --color-bg-dark-alt: #2D1B4E;
+
+  --color-border: #DED0F0;
+  --color-border-light: #EDE5F7;
+
+  --shadow-primary: 0 4px 16px rgba(124, 58, 237, 0.2);
+}

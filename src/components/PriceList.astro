@@ -1,0 +1,139 @@
+---
+import pricing from '../../data/pricing.json';
+---
+
+<section class="spec-section" id="specialization">
+  <header class="spec-section__header">
+    <h2 class="spec-section__title">Клиническая специализация</h2>
+    <p class="spec-section__subtitle">Виды ортопедических работ, выполняемых врачом</p>
+  </header>
+  
+  <div class="spec-section__grid">
+    {pricing.map(section => (
+      <details class="spec-block">
+        <summary class="spec-block__category">{section.category}</summary>
+        <div class="spec-block__items">
+          {section.items.map(item => (
+            <a href={item.link} class="spec-item">
+              <span class="spec-item__name">{item.name}</span>
+            </a>
+          ))}
+        </div>
+      </details>
+    ))}
+  </div>
+</section>
+
+<style>
+.spec-section {
+  padding: var(--space-3xl) 0;
+  background: var(--color-bg);
+}
+
+.spec-section__header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.spec-section__title {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.spec-section__subtitle {
+  color: var(--color-text-muted);
+}
+
+.spec-section__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.spec-block {
+  background: white;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.spec-block__category {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--space-md) var(--space-lg);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.spec-block__category::-webkit-details-marker {
+  display: none;
+}
+
+.spec-block__category::after {
+  content: '+';
+  font-size: var(--text-xl);
+  color: var(--color-primary);
+  transition: transform var(--transition-fast);
+}
+
+details[open] .spec-block__category::after {
+  content: '−';
+}
+
+.spec-block__items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xs);
+  padding: 0 var(--space-lg) var(--space-lg);
+}
+
+.spec-item {
+  display: block;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background var(--transition-fast);
+  background: var(--color-bg);
+}
+
+.spec-item__name {
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  line-height: 1.4;
+}
+
+.spec-item:hover {
+  background: var(--color-border);
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .spec-section {
+    padding: var(--space-xl) 0;
+  }
+  .spec-section__title {
+    font-size: var(--text-xl);
+  }
+  .spec-section__grid {
+    grid-template-columns: 1fr;
+  }
+  .spec-block__items {
+    grid-template-columns: 1fr;
+  }
+  .spec-block__category {
+    padding: var(--space-sm) var(--space-md);
+  }
+  .spec-block__items {
+    padding: 0 var(--space-md) var(--space-md);
+  }
+}
+</style>

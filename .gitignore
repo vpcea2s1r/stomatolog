@@ -1,0 +1,12 @@
+node_modules
+dist
+.DS_Store
+.env
+*.log
+9router
+openserp
+scripts
+wordstat
+.wrangler
+.keystatic
+.astro

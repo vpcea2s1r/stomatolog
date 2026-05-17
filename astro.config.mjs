@@ -1,13 +1,9 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
-  site: 'https://ortopednn.ru',
+  site: 'https://stomatolog.ortopednn.ru',
   output: 'static',
-  adapter: cloudflare({
-    imageService: 'cloudflare',
-  }),
   prefetch: {
     prefetchAll: false,
     hover: true
@@ -16,7 +12,7 @@ export default defineConfig({
     sitemap()
   ],
   image: {
-    domains: ['ortopednn.ru']
+    domains: ['stomatolog.ortopednn.ru']
   },
   vite: {
     build: {

@@ -1,188 +1,89 @@
 ---
-import pricing from '../../data/pricing.json';
----
 
-<section class="pricelist">
+<section class="price-cta">
   <div class="container">
-    <header class="pricelist__header">
-      <h2 class="pricelist__title">Цены на протезирование</h2>
-      <p class="pricelist__subtitle">Точная стоимость определяется после консультации</p>
-    </header>
-    
-    <div class="pricelist__grid">
-      {pricing.map(section => (
-        <div class="pricelist__category">
-          <h3 class="pricelist__category-title">{section.category}</h3>
-          <div class="pricelist__items">
-            {section.items.map(item => (
-              <a href={item.link} class="pricelist__item">
-                <span class="pricelist__item-name">{item.name}</span>
-                <span class="pricelist__item-price">{item.price}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-
-    <div class="pricelist__cta">
-      <a href="/services/" class="pricelist__btn">
-        Все услуги и цены
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
+    <div class="price-cta__card">
+      <div class="price-cta__icon">🦷</div>
+      <h2 class="price-cta__title">Стоимость — по записи</h2>
+      <p class="price-cta__text">Финальная цена зависит от клинической картины, материалов и объёма работ. Позвоните — обсудим ваш случай и подберём оптимальный вариант.</p>
+      <a href="tel:+79202537317" class="price-cta__btn">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
         </svg>
+        +7 (920) 253-73-17
       </a>
+      <p class="price-cta__note">Бесплатная консультация</p>
     </div>
   </div>
 </section>
 
 <style>
-.pricelist {
+.price-cta {
   padding: var(--space-4xl) 0;
-  background: var(--color-bg);
+  background: var(--color-bg-alt);
 }
 
-.pricelist__header {
+.price-cta__card {
+  max-width: 600px;
+  margin: 0 auto;
   text-align: center;
-  margin-bottom: var(--space-2xl);
+  background: var(--color-bg);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--color-border-light);
+  padding: var(--space-3xl);
+  box-shadow: var(--shadow-lg);
 }
 
-.pricelist__title {
-  font-size: var(--text-3xl);
+.price-cta__icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-lg);
+}
+
+.price-cta__title {
+  font-size: var(--text-2xl);
   font-weight: 800;
   color: var(--color-text);
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-md);
 }
 
-.pricelist__subtitle {
-  color: var(--color-text-muted);
+.price-cta__text {
   font-size: var(--text-base);
-  margin: 0;
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-xl);
 }
 
-.pricelist__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-xl);
-  margin-bottom: var(--space-2xl);
-}
-
-.pricelist__category {
-  background: var(--color-bg);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--color-border-light);
-  overflow: hidden;
-  transition: all var(--transition-normal);
-}
-
-.pricelist__category:hover {
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-border);
-}
-
-.pricelist__category-title {
-  font-size: var(--text-sm);
-  font-weight: 700;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  padding: var(--space-md) var(--space-lg);
-  background: var(--color-primary-1);
-  margin: 0;
-}
-
-.pricelist__items {
-  padding: var(--space-xs) 0;
-}
-
-.pricelist__item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-sm) var(--space-lg);
-  text-decoration: none;
-  transition: background var(--transition-fast);
-  gap: var(--space-md);
-}
-
-.pricelist__item:not(:last-child) {
-  border-bottom: 1px solid var(--color-border-light);
-}
-
-.pricelist__item:hover {
-  background: var(--color-bg-alt);
-  text-decoration: none;
-}
-
-.pricelist__item-name {
-  color: var(--color-text);
-  font-size: var(--text-sm);
-  line-height: var(--leading-normal);
-  flex: 1;
-}
-
-.pricelist__item-price {
-  color: var(--color-primary);
-  font-weight: 700;
-  font-size: var(--text-sm);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.pricelist__cta {
-  text-align: center;
-}
-
-.pricelist__btn {
+.price-cta__btn {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-xs);
-  padding: var(--space-sm) var(--space-xl);
+  gap: var(--space-sm);
   background: var(--color-primary);
   color: white;
+  padding: var(--space-md) var(--space-2xl);
   border-radius: var(--radius-full);
-  font-weight: 600;
-  font-size: var(--text-base);
   text-decoration: none;
+  font-weight: 700;
+  font-size: var(--text-xl);
   transition: all var(--transition-fast);
 }
 
-.pricelist__btn:hover {
+.price-cta__btn:hover {
   background: var(--color-primary-hover);
   box-shadow: var(--shadow-primary);
   transform: translateY(-2px);
   text-decoration: none;
 }
 
-@media (max-width: 768px) {
-  .pricelist__grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-  }
-
-  .pricelist {
-    padding: var(--space-2xl) 0;
-  }
-
-  .pricelist__title {
-    font-size: var(--text-2xl);
-  }
+.price-cta__note {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-md);
 }
 
 @media (max-width: 640px) {
-  .pricelist__item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-    padding: var(--space-sm) var(--space-md);
-  }
-
-  .pricelist__item-name {
-    font-size: var(--text-sm);
-  }
-
-  .pricelist__item-price {
-    font-size: var(--text-sm);
-  }
+  .price-cta { padding: var(--space-2xl) 0; }
+  .price-cta__card { padding: var(--space-xl); }
+  .price-cta__title { font-size: var(--text-xl); }
+  .price-cta__btn { font-size: var(--text-lg); padding: var(--space-sm) var(--space-lg); }
 }
 </style>

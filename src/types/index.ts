@@ -45,7 +45,6 @@ export interface District {
 
 export interface PricingItem {
   name: string;
-  price: string;
   link?: string;
   code?: string;
   includes?: string[];

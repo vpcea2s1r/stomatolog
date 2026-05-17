@@ -1,5 +1,7 @@
 ---
-export const prerender = false;
+export async function getStaticPaths() {
+  return [{ params: { catchall: 'index' } }];
+}
 ---
 
 <!DOCTYPE html>
@@ -12,6 +14,5 @@ export const prerender = false;
 <body>
   <h1>Keystatic Admin</h1>
   <p>Для редактирования используйте Keystatic CMS.</p>
-  <p>Настройте GitHub OAuth в Cloudflare Pages для доступа к админке.</p>
 </body>
 </html>

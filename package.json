@@ -11,6 +11,7 @@
     "lint:astro": "astro check",
     "lint": "npm run lint:astro",
     "deploy": "node scripts/build-theme.js medical",
+    "build-all": "node scripts/build-all-themes.js",
     "format": "prettier --write \"src/**/*.{astro,js,ts,css,json}\""
   },
   "dependencies": {

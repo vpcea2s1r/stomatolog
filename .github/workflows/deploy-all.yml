@@ -1,0 +1,81 @@
+name: Deploy All Themes
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-all:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build-all
+
+      - name: Upload medical artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/medical
+          name: github-pages
+
+  deploy-medical:
+    needs: build-all
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: https://stomatolog.ortopednn.ru
+    steps:
+      - uses: actions/deploy-pages@v4
+
+  deploy-warm:
+    needs: build-all
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.DEPLOY_KEY_STOMATOLOG2 }}
+          external_repository: vpcea2s1r/stomatolog2
+          publish_dir: ./dist/warm
+          cname: stomatolog2.ortopednn.ru
+
+  deploy-premium:
+    needs: build-all
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.DEPLOY_KEY_STOMATOLOG3 }}
+          external_repository: vpcea2s1r/stomatolog3
+          publish_dir: ./dist/premium
+          cname: stomatolog3.ortopednn.ru
+
+  deploy-purple:
+    needs: build-all
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.DEPLOY_KEY_STOMATOLOG4 }}
+          external_repository: vpcea2s1r/stomatolog4
+          publish_dir: ./dist/purple
+          cname: stomatolog4.ortopednn.ru
+
+  deploy-experimental:
+    needs: build-all
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.DEPLOY_KEY_STOMATOLOG5 }}
+          external_repository: vpcea2s1r/stomatolog5
+          publish_dir: ./dist/experimental
+          cname: stomatolog5.ortopednn.ru

@@ -1,0 +1,41 @@
+:root {
+  /* Премиум — Dark Navy + Gold */
+  --color-primary-1: #FDF8EE;
+  --color-primary-2: #F5E8C8;
+  --color-primary-3: #E8D4A0;
+  --color-primary-4: #DCC47A;
+  --color-primary-5: #D4B35E;
+  --color-primary: #C8A45C;
+  --color-primary-7: #A88840;
+  --color-primary-8: #8A6E30;
+  --color-primary-9: #6C5420;
+  --color-primary-10: #4E3A12;
+
+  --color-primary-hover: #D4B35E;
+  --color-primary-active: #A88840;
+  --color-primary-light: #FDF8EE;
+  --color-primary-dark: #8A6E30;
+
+  --color-success: #2E7D5E;
+  --color-success-hover: #3A9B74;
+  --color-warning: #B8860B;
+  --color-error: #A03030;
+  --color-gold: #C8A45C;
+
+  --color-text: #0A1628;
+  --color-text-secondary: #1A2844;
+  --color-text-muted: #5A6577;
+  --color-text-light: #8A95A7;
+
+  --color-bg: #FFFFFF;
+  --color-bg-alt: #F8F6F2;
+  --color-bg-gradient-start: #FDFBF8;
+  --color-bg-gradient-end: #FFFFFF;
+  --color-bg-dark: #0A1628;
+  --color-bg-dark-alt: #14203A;
+
+  --color-border: #D4CCBF;
+  --color-border-light: #EBE7DF;
+
+  --shadow-primary: 0 4px 16px rgba(200, 164, 92, 0.3);
+}

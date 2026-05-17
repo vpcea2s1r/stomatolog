@@ -1,0 +1,41 @@
+:root {
+  /* Тёплая стоматология — Beige + Coral */
+  --color-primary-1: #FFF0EB;
+  --color-primary-2: #FFD6CC;
+  --color-primary-3: #FFB8A8;
+  --color-primary-4: #FF9A85;
+  --color-primary-5: #F07C62;
+  --color-primary: #E07A5F;
+  --color-primary-7: #C06048;
+  --color-primary-8: #9E4A36;
+  --color-primary-9: #7C3827;
+  --color-primary-10: #5A281B;
+
+  --color-primary-hover: #F07C62;
+  --color-primary-active: #C06048;
+  --color-primary-light: #FFF0EB;
+  --color-primary-dark: #9E4A36;
+
+  --color-success: #7B9E6D;
+  --color-success-hover: #8FB380;
+  --color-warning: #D4A05A;
+  --color-error: #C25A5A;
+  --color-gold: #D4A05A;
+
+  --color-text: #3D2B1F;
+  --color-text-secondary: #5C4033;
+  --color-text-muted: #8B7D72;
+  --color-text-light: #B5A79A;
+
+  --color-bg: #FEFAF5;
+  --color-bg-alt: #FDF5ED;
+  --color-bg-gradient-start: #FAEFE3;
+  --color-bg-gradient-end: #FEFAF5;
+  --color-bg-dark: #3D2B1F;
+  --color-bg-dark-alt: #5C4033;
+
+  --color-border: #E8DCD0;
+  --color-border-light: #F2EAE0;
+
+  --shadow-primary: 0 4px 16px rgba(224, 122, 95, 0.25);
+}

@@ -1,8 +1,11 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
+const THEME = process.env.THEME || 'medical';
+const THEME_DOMAIN = THEME === 'medical' ? '' : THEME;
+
 export default defineConfig({
-  site: 'https://stomatolog.ortopednn.ru',
+  site: `https://stomatolog${THEME_DOMAIN}.ortopednn.ru`,
   output: 'static',
   prefetch: {
     prefetchAll: false,

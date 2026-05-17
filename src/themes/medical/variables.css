@@ -1,0 +1,41 @@
+:root {
+  /* Medical Minimal — Sky Blue + White + Emerald */
+  --color-primary-1: #E0F2FE;
+  --color-primary-2: #BAE6FD;
+  --color-primary-3: #7DD3FC;
+  --color-primary-4: #38BDF8;
+  --color-primary-5: #0EA5E9;
+  --color-primary: #0284C7;
+  --color-primary-7: #0369A1;
+  --color-primary-8: #075985;
+  --color-primary-9: #0C4A6E;
+  --color-primary-10: #082F49;
+
+  --color-primary-hover: #0EA5E9;
+  --color-primary-active: #0369A1;
+  --color-primary-light: #E0F2FE;
+  --color-primary-dark: #075985;
+
+  --color-success: #059669;
+  --color-success-hover: #10B981;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+  --color-gold: #D97706;
+
+  --color-text: #0F172A;
+  --color-text-secondary: #1E293B;
+  --color-text-muted: #64748B;
+  --color-text-light: #94A3B8;
+
+  --color-bg: #FFFFFF;
+  --color-bg-alt: #F8FAFC;
+  --color-bg-gradient-start: #F0F9FF;
+  --color-bg-gradient-end: #FFFFFF;
+  --color-bg-dark: #0F172A;
+  --color-bg-dark-alt: #1E293B;
+
+  --color-border: #E2E8F0;
+  --color-border-light: #F1F5F9;
+
+  --shadow-primary: 0 4px 16px rgba(2, 132, 199, 0.25);
+}

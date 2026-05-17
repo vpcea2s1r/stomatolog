@@ -10,6 +10,7 @@
     "generate": "node scripts/content-constructor.js",
     "lint:astro": "astro check",
     "lint": "npm run lint:astro",
+    "deploy": "node scripts/build-theme.js medical",
     "format": "prettier --write \"src/**/*.{astro,js,ts,css,json}\""
   },
   "dependencies": {

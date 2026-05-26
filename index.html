@@ -1,10 +1,561 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="robots" content="noindex,nofollow">
-<title>Cleared</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Никитина Марина Георгиевна — Стоматолог-ортопед в Нижнем Новгороде</title>
+<meta name="description" content="Никитина М.Г., стоматолог-ортопед с 30+ лет опыта. Протезирование зубов в Нижнем Новгороде. Современные материалы и индивидуальный подход.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg-primary:#0a0a12;
+  --bg-secondary:#12121f;
+  --bg-card:rgba(255,255,255,0.04);
+  --border-card:rgba(255,255,255,0.08);
+  --text-primary:#f0f0f5;
+  --text-secondary:rgba(255,255,255,0.65);
+  --accent-1:#6c5ce7;
+  --accent-2:#00cec9;
+  --accent-3:#fd79a8;
+  --gradient-hero:linear-gradient(135deg,#6c5ce7,#00cec9,#6c5ce7);
+  --gradient-glass:linear-gradient(135deg,rgba(108,92,231,0.15),rgba(0,206,201,0.08));
+  --shadow-glow:0 0 60px rgba(108,92,231,0.15);
+  --radius-sm:8px;
+  --radius-md:16px;
+  --radius-lg:24px;
+  --radius-xl:32px;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--bg-primary);
+  color:var(--text-primary);
+  overflow-x:hidden;
+  line-height:1.5;
+}
+
+/* Canvas 3D background */
+#bg-canvas{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* Navigation */
+.nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:100;
+  padding:16px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(10,10,18,0.8);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.nav__logo{
+  font-size:18px;
+  font-weight:700;
+  background:var(--gradient-hero);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  text-decoration:none;
+}
+.nav__phone{
+  padding:8px 20px;
+  border-radius:100px;
+  background:var(--gradient-hero);
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.nav__phone:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(108,92,231,0.3)}
+
+/* Hero section */
+.hero{
+  position:relative;
+  z-index:1;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:120px 24px 80px;
+  text-align:center;
+}
+.hero__inner{
+  max-width:800px;
+}
+.hero__badge{
+  display:inline-block;
+  padding:8px 20px;
+  border-radius:100px;
+  background:var(--gradient-glass);
+  border:1px solid var(--border-card);
+  font-size:13px;
+  font-weight:500;
+  color:var(--text-secondary);
+  margin-bottom:32px;
+  letter-spacing:0.3px;
+}
+.hero__title{
+  font-size:clamp(36px,7vw,76px);
+  font-weight:900;
+  line-height:1.05;
+  margin-bottom:24px;
+  background:var(--gradient-hero);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  background-size:200% auto;
+  animation:gradientShift 6s ease infinite;
+}
+@keyframes gradientShift{
+  0%,100%{background-position:0% center}
+  50%{background-position:100% center}
+}
+.hero__subtitle{
+  font-size:clamp(16px,2vw,20px);
+  color:var(--text-secondary);
+  margin-bottom:48px;
+  max-width:600px;
+  margin-left:auto;
+  margin-right:auto;
+  line-height:1.6;
+}
+.hero__actions{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:14px 32px;
+  border-radius:100px;
+  font-size:15px;
+  font-weight:600;
+  text-decoration:none;
+  transition:all 0.3s;
+  cursor:pointer;
+  border:none;
+}
+.btn--primary{
+  background:var(--gradient-hero);
+  color:#fff;
+  box-shadow:0 4px 30px rgba(108,92,231,0.3);
+}
+.btn--primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 40px rgba(108,92,231,0.45);
+}
+.btn--ghost{
+  background:transparent;
+  color:var(--text-primary);
+  border:1px solid var(--border-card);
+  backdrop-filter:blur(10px);
+}
+.btn--ghost:hover{
+  border-color:var(--accent-1);
+  background:rgba(108,92,231,0.08);
+}
+
+/* Stats */
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:48px;
+  margin-top:64px;
+  flex-wrap:wrap;
+}
+.stat{}
+.stat__num{
+  font-size:32px;
+  font-weight:800;
+  background:var(--gradient-hero);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.stat__label{
+  font-size:13px;
+  color:var(--text-secondary);
+  margin-top:4px;
+}
+
+/* Sections */
+.section{
+  position:relative;
+  z-index:1;
+  padding:80px 24px;
+}
+.section--alt{background:var(--bg-secondary)}
+.section__inner{
+  max-width:1100px;
+  margin:0 auto;
+}
+.section__label{
+  font-size:13px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  color:var(--accent-1);
+  margin-bottom:12px;
+}
+.section__title{
+  font-size:clamp(28px,4vw,44px);
+  font-weight:800;
+  margin-bottom:16px;
+}
+.section__title--gradient{
+  background:var(--gradient-hero);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.section__desc{
+  font-size:16px;
+  color:var(--text-secondary);
+  max-width:600px;
+  line-height:1.7;
+  margin-bottom:48px;
+}
+
+/* Cards grid */
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+.card{
+  background:var(--bg-card);
+  border:1px solid var(--border-card);
+  border-radius:var(--radius-lg);
+  padding:32px;
+  backdrop-filter:blur(10px);
+  transition:all 0.3s;
+}
+.card:hover{
+  border-color:rgba(108,92,231,0.3);
+  transform:translateY(-4px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.3);
+}
+.card__icon{
+  width:48px;
+  height:48px;
+  border-radius:12px;
+  background:var(--gradient-glass);
+  border:1px solid var(--border-card);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:20px;
+  font-size:22px;
+}
+.card__title{
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+.card__text{
+  font-size:14px;
+  color:var(--text-secondary);
+  line-height:1.6;
+}
+
+/* Services list */
+.services-list{
+  display:grid;
+  gap:12px;
+}
+.service-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 24px;
+  background:var(--bg-card);
+  border:1px solid var(--border-card);
+  border-radius:var(--radius-md);
+  transition:all 0.3s;
+  cursor:default;
+}
+.service-item:hover{
+  border-color:rgba(108,92,231,0.2);
+  background:rgba(108,92,231,0.04);
+}
+.service-item__name{font-size:15px;font-weight:500}
+.service-item__arrow{color:var(--accent-1);font-size:20px;transition:transform 0.2s}
+.service-item:hover .service-item__arrow{transform:translateX(4px)}
+
+/* Contact section */
+.contact{
+  background:var(--gradient-hero);
+  border-radius:var(--radius-xl);
+  padding:48px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.contact::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 30% 50%,rgba(255,255,255,0.1),transparent 60%);
+  pointer-events:none;
+}
+.contact__inner{position:relative;z-index:1}
+.contact__title{
+  font-size:clamp(24px,3vw,36px);
+  font-weight:800;
+  color:#fff;
+  margin-bottom:12px;
+}
+.contact__desc{
+  color:rgba(255,255,255,0.8);
+  margin-bottom:32px;
+}
+.contact__btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:16px 40px;
+  background:#fff;
+  color:var(--accent-1);
+  border-radius:100px;
+  font-size:16px;
+  font-weight:600;
+  text-decoration:none;
+  transition:all 0.3s;
+}
+.contact__btn:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(0,0,0,0.2)}
+.contact__info{
+  margin-top:20px;
+  font-size:14px;
+  color:rgba(255,255,255,0.7);
+}
+
+/* Footer */
+.footer{
+  position:relative;
+  z-index:1;
+  padding:40px 24px;
+  text-align:center;
+  font-size:13px;
+  color:var(--text-secondary);
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+
+/* Responsive */
+@media(max-width:640px){
+  .hero{padding:100px 16px 60px}
+  .hero__actions{flex-direction:column;align-items:center}
+  .btn{width:100%;justify-content:center}
+  .stats{gap:24px}
+  .section{padding:60px 16px}
+  .contact{padding:32px 20px;border-radius:var(--radius-lg)}
+  .cards-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
+
+<canvas id="bg-canvas"></canvas>
+
+<nav class="nav">
+  <a href="/" class="nav__logo">Никитина М.Г.</a>
+  <a href="tel:+79202537317" class="nav__phone">+7 (920) 253-73-17</a>
+</nav>
+
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__badge">Стоматолог-ортопед · Нижний Новгород</div>
+    <h1 class="hero__title">Протезирование зубов<br>с 30-летним опытом</h1>
+    <p class="hero__subtitle">Никитина Марина Георгиевна — восстановим зубы от коронки до съёмного протеза. Современные материалы, индивидуальный подход, бесплатная консультация.</p>
+    <div class="hero__actions">
+      <a href="tel:+79202537317" class="btn btn--primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +7 (920) 253-73-17
+      </a>
+      <a href="#services" class="btn btn--ghost">Услуги и цены</a>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__num">30+</div>
+        <div class="stat__label">Лет практики</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">5000+</div>
+        <div class="stat__label">Пациентов</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">98%</div>
+        <div class="stat__label">Довольных</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="about">
+  <div class="section__inner">
+    <div class="section__label">О враче</div>
+    <h2 class="section__title">Никитина Марина Георгиевна</h2>
+    <p class="section__desc">Врач-стоматолог высшей категории, ортопед. Более 30 лет помогает пациентам Нижнего Новгорода восстанавливать здоровье и красоту улыбки. Использует современные материалы и методики протезирования.</p>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card__icon">🎓</div>
+        <div class="card__title">Высшее образование</div>
+        <div class="card__text">Диплом Нижегородской государственной медицинской академии. Регулярное повышение квалификации.</div>
+      </div>
+      <div class="card">
+        <div class="card__icon">🦷</div>
+        <div class="card__title">30+ лет опыта</div>
+        <div class="card__text">Тысячи успешно вылеченных и восстановленных зубов. Индивидуальный подход к каждому пациенту.</div>
+      </div>
+      <div class="card">
+        <div class="card__icon">⭐</div>
+        <div class="card__title">Современные методики</div>
+        <div class="card__text">Работа с цифровыми технологиями, качественными материалами и безболезненными методами.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="section__inner">
+    <div class="section__label">Услуги</div>
+    <h2 class="section__title section__title--gradient">Что я предлагаю</h2>
+    <p class="section__desc">От диагностики до полного восстановления зубного ряда — подберу оптимальный вариант под ваш бюджет и клиническую ситуацию.</p>
+    <div class="services-list">
+      <div class="service-item">
+        <span class="service-item__name">Коронки металлокерамические</span>
+        <span class="service-item__arrow">→</span>
+      </div>
+      <div class="service-item">
+        <span class="service-item__name">Коронки циркониевые</span>
+        <span class="service-item__arrow">→</span>
+      </div>
+      <div class="service-item">
+        <span class="service-item__name">Съёмные протезы (акриловые, нейлоновые)</span>
+        <span class="service-item__arrow">→</span>
+      </div>
+      <div class="service-item">
+        <span class="service-item__name">Бюгельные протезы</span>
+        <span class="service-item__arrow">→</span>
+      </div>
+      <div class="service-item">
+        <span class="service-item__name">Виниры и вкладки</span>
+        <span class="service-item__arrow">→</span>
+      </div>
+      <div class="service-item">
+        <span class="service-item__name">Имплантация (хирургический этап)</span>
+        <span class="service-item__arrow">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="section__inner">
+    <div class="contact">
+      <div class="contact__inner">
+        <h2 class="contact__title">Запишитесь на бесплатную консультацию</h2>
+        <p class="contact__desc">Приходите — обсудим вашу ситуацию и подберём оптимальный план лечения</p>
+        <a href="tel:+79202537317" class="contact__btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +7 (920) 253-73-17
+        </a>
+        <div class="contact__info">Нижний Новгород, ул. Октябрьской Революции, д. 43</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2026 Никитина Марина Георгиевна · Стоматолог-ортопед в Нижнем Новгороде</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  const canvas = document.getElementById('bg-canvas');
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  const group = new THREE.Group();
+  scene.add(group);
+
+  const colors = [0x6c5ce7, 0x00cec9, 0xfd79a8];
+  const count = 80;
+  const geometries = [];
+
+  for (let i = 0; i < count; i++) {
+    const geo = i % 3 === 0
+      ? new THREE.TorusKnotGeometry(0.3, 0.1, 32, 16)
+      : i % 3 === 1
+        ? new THREE.OctahedronGeometry(0.25)
+        : new THREE.IcosahedronGeometry(0.2);
+    const mat = new THREE.MeshBasicMaterial({
+      color: colors[i % 3],
+      wireframe: true,
+      transparent: true,
+      opacity: 0.08 + Math.random() * 0.12
+    });
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.position.x = (Math.random() - 0.5) * 30;
+    mesh.position.y = (Math.random() - 0.5) * 20;
+    mesh.position.z = (Math.random() - 0.5) * 20 - 5;
+    mesh.rotation.x = Math.random() * Math.PI;
+    mesh.rotation.y = Math.random() * Math.PI;
+    const speed = 0.001 + Math.random() * 0.003;
+    mesh.userData = { speed, rotSpeed: 0.002 + Math.random() * 0.005 };
+    group.add(mesh);
+    geometries.push(mesh);
+  }
+
+  camera.position.z = 12;
+
+  let mouseX = 0, mouseY = 0;
+  document.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+    mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+  });
+
+  function animate() {
+    requestAnimationFrame(animate);
+    group.rotation.y += 0.001;
+    group.rotation.x += 0.0003;
+    geometries.forEach(m => {
+      m.rotation.x += m.userData.rotSpeed;
+      m.rotation.y += m.userData.rotSpeed * 0.7;
+    });
+    group.rotation.y += (mouseX * 0.05 - group.rotation.y) * 0.01;
+    group.rotation.x += (mouseY * 0.03 - group.rotation.x) * 0.01;
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+})();
+</script>
+
 </body>
 </html>

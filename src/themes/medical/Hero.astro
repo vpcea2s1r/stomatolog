@@ -1,9 +1,12 @@
 ---
+import GlobeBg from './GlobeBg.astro';
 const doctor = Astro.props.doctor;
 ---
 
 <section class="hero">
-  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="hero__bg" aria-hidden="true">
+    <GlobeBg />
+  </div>
   <div class="hero__container">
     <div class="hero__content">
       <span class="hero__badge">
